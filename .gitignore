@@ -1,27 +1,31 @@
-node_modules
+# Node modules
+node_modules/
+
+# Environment
 .env
 
 # Jest
-coverage
+coverage/
 
 # NX
-.nx/cache
+.nx/cache/
 
-# Build Files
-dist
-build
-generated
+# Build output
+dist/
+build/
+generated/
 
-# compiled output
-dist
-tmp
-/out-tsc
+# Compiled output
+tmp/
+out-tsc/
 
-# dependencies
-node_modules
+# Source folders
+/src/test-compilation/
+/src/api-testing/
 
 # IDEs and editors
-/.idea
+.idea/
+.vscode/
 .project
 .classpath
 .c9/
@@ -29,28 +33,26 @@ node_modules
 .settings/
 *.sublime-workspace
 
-# misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
+# GitHub
+.github/
+
+# Misc
+.sass-cache/
+connect.lock
+libpeerconnection.log
 npm-debug.log
 yarn-error.log
 testem.log
-/typings
+typings/
 
-# System Files
+# System files
 .DS_Store
 Thumbs.db
 
-.nx/cache
-/src/test-compilation
-/src/api-testing
-/dist
-/.vscode
-/.github
-/package.json
-/LICENSE
-/eslint.config.js
-/tsconfig.json
-/rollup
+# Config & metadata (if you really want to ignore these)
+package.json
+LICENSE
+eslint.config.js
+tsconfig.json
+rollup/
+.gitignore
