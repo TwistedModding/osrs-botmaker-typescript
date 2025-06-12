@@ -89,7 +89,7 @@ export function onGameTick() {
 	}
 	
 	if (utils.dialogVisible('Welcome, brother.')) {
-		bot.printGameMessage('Found the dialogue!');
+		bot.printGameMessage('Found the dialogue!!');
 	}
 
 	if (isInventoryFull() && !bot.bank.isOpen()) {
