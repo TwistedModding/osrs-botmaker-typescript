@@ -148,7 +148,7 @@ export function onGameTick() {
 		!bot.walking.isWebWalking()
 	) {
 		bot.walking.webWalkStart(
-			new net.runelite.api.coords.WorldPoint(3090, 3250, 0),
+			new net.runelite.api.coords.WorldPoint(1748, 3598, 0),
 		);
 		sleep = 15;
 	}
@@ -157,7 +157,7 @@ export function onGameTick() {
 		client
 			.getLocalPlayer()
 			.getWorldLocation()
-			.distanceTo(new net.runelite.api.coords.WorldPoint(3090, 3250, 0)) <
+			.distanceTo(new net.runelite.api.coords.WorldPoint(1748, 3598, 0)) <
 		5
 	) {
 		if (bot.bank.isOpen()) {
@@ -194,7 +194,12 @@ export function onGameTick() {
 		drop = 1;
 	}
 
-	if (isInventoryFull() && bot.localPlayerIdle() && drop === 1) {
+	if (
+		isInventoryFull() &&
+		bot.localPlayerIdle() &&
+		drop === 1 &&
+		!bot.walking.isWebWalking()
+	) {
 		interactConsecutively(
 			[1955, 5504, 2114, 1963, 2102, 247, 2120, 1951, 5972],
 			['Drop'],
@@ -203,8 +208,17 @@ export function onGameTick() {
 		drop = 0;
 	}
 
-	if (!isInventoryFull() && bot.localPlayerIdle()) {
+	if (
+		!isInventoryFull() &&
+		bot.localPlayerIdle() &&
+		!bot.walking.isWebWalking()
+	) {
 		interactClosestObject(28823, 'Steal-from', 2);
 		sleep = 5;
 	}
+}
+
+export function onEnd() {
+	bot.printGameMessage('Thiever Ended.');
+	bot.walking.webWalkCancel();
 }
