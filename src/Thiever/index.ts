@@ -148,7 +148,7 @@ export function onGameTick() {
 		bot.walking.webWalkStart(
 			new net.runelite.api.coords.WorldPoint(3090, 3250, 0),
 		);
-		sleep = 5;
+		sleep = 15;
 	}
 
 	if (
