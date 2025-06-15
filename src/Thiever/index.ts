@@ -142,7 +142,9 @@ export function onGameTick() {
 	if (
 		isInventoryFull() &&
 		bot.localPlayerIdle() &&
-		!bot.inventory.containsAnyIds([1955, 5504, 2114, 1963, 2102, 247]) &&
+		!bot.inventory.containsAnyIds([
+			1955, 5504, 2114, 1963, 2102, 247, 2120, 1951, 5972,
+		]) &&
 		!bot.walking.isWebWalking()
 	) {
 		bot.walking.webWalkStart(
@@ -185,13 +187,18 @@ export function onGameTick() {
 
 	if (
 		isInventoryFull() &&
-		bot.inventory.containsAnyIds([1955, 5504, 2114, 1963, 2102, 247])
+		bot.inventory.containsAnyIds([
+			1955, 5504, 2114, 1963, 2102, 247, 2120, 1951, 5972,
+		])
 	) {
 		drop = 1;
 	}
 
 	if (isInventoryFull() && bot.localPlayerIdle() && drop === 1) {
-		interactConsecutively([1955, 5504, 2114, 1963, 2102, 247], ['Drop']);
+		interactConsecutively(
+			[1955, 5504, 2114, 1963, 2102, 247, 2120, 1951, 5972],
+			['Drop'],
+		);
 		sleep = 5;
 		drop = 0;
 	}
