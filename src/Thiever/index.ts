@@ -160,12 +160,15 @@ export function onGameTick() {
 			.distanceTo(new net.runelite.api.coords.WorldPoint(1748, 3598, 0)) <
 		5
 	) {
-		if (bot.bank.isOpen()) {
+		if (bot.bank.isOpen() && isInventoryFull()) {
 			depositAll();
-			bot.bank.close();
 			sleep = 5;
-		} else if (!bot.bank.isOpen()) {
+		} else if (!bot.bank.isOpen() && isInventoryFull()) {
 			bot.bank.open();
+			sleep = 5;
+			return;
+		} else if (bot.bank.isOpen() && !isInventoryFull()) {
+			bot.bank.close();
 			sleep = 5;
 			return;
 		}
